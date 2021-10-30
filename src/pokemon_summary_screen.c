@@ -1681,7 +1681,7 @@ static s8 AdvanceMonIndex(s8 delta)
     delta += numMons;
     index = (index + delta) % numMons;
 
-    if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
+    if (sMonSummaryScreen->currPageIndex != PSS_PAGE_INFO)
         while (GetMonData(&mon[index], MON_DATA_IS_EGG))
             index = (index + delta) % numMons;
 
@@ -4138,8 +4138,8 @@ static void KeepMoveSelectorVisible(u8 firstSpriteId)
 
 static void BufferStat(u8 *dst, s8 natureMod, u32 stat, u32 strId, u32 n)
 {
-    static const u8 sTextNatureDown[] = _("{COLOR LIGHT_RED}{SHADOW GREEN}");
-    static const u8 sTextNatureUp[] = _("{COLOR LIGHT_GREEN}{SHADOW BLUE}");
+    static const u8 sTextNatureDown[] = _("{COLOR DYNAMIC_COLOR3}{SHADOW DYNAMIC_COLOR2}");
+    static const u8 sTextNatureUp[] = _("{COLOR LIGHT_RED}{SHADOW GREEN}");
     static const u8 sTextNatureNeutral[] = _("{COLOR WHITE}{SHADOW DARK_GRAY}");
     u8 *txtPtr;
 
