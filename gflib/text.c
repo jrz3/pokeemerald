@@ -1007,7 +1007,7 @@ u16 RenderText(struct TextPrinter *textPrinter)
                 textPrinter->printerTemplate.currentChar++;
                 return 2;
             case EXT_CTRL_CODE_RESET_SIZE:
-                subStruct->glyphId = textPrinter->printerTemplate.fontId;
+                subStruct->fontId = textPrinter->printerTemplate.fontId;
                 return 2;
             case EXT_CTRL_CODE_PAUSE:
                 textPrinter->delayCounter = *textPrinter->printerTemplate.currentChar;
