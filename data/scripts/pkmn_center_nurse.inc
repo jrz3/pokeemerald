@@ -5,8 +5,8 @@ Common_EventScript_PkmnCenterNurse::
     end
 
 EventScript_PkmnCenterNurse_Goodbye::
-    message gText_WeHopeToSeeYouAgain
-    return
+	message gText_WeHopeToSeeYouAgain
+	return
 
 EventScript_PkmnCenterNurse_HealPkmn::
     incrementgamestat GAME_STAT_USED_POKECENTER
@@ -18,18 +18,18 @@ EventScript_PkmnCenterNurse_HealPkmn::
     end
 
 EventScript_PkmnCenterNurse_IllTakeYourPkmn::
-    message gText_IllTakeYourPkmn
-    return
+	message gText_IllTakeYourPkmn
+	return
 
 EventScript_PkmnCenterNurse_TakeAndHealPkmn::
-    applymovement VAR_0x800B, Common_Movement_WalkInPlaceFasterLeft
-    waitmovement 0
-    dofieldeffect FLDEFF_POKECENTER_HEAL
-    waitfieldeffect FLDEFF_POKECENTER_HEAL
-    applymovement VAR_0x800B, Common_Movement_WalkInPlaceFasterDown
-    waitmovement 0
-    special HealPlayerParty
-    return
+	applymovement VAR_0x800B, Common_Movement_WalkInPlaceFasterLeft
+	waitmovement 0
+	dofieldeffect FLDEFF_POKECENTER_HEAL
+	waitfieldeffect FLDEFF_POKECENTER_HEAL
+	applymovement VAR_0x800B, Common_Movement_WalkInPlaceFasterDown
+	waitmovement 0
+	special HealPlayerParty
+	return
 
 EventScript_PkmnCenterNurse_ReturnPkmn::
     waitmessage
@@ -47,9 +47,9 @@ EventScript_PkmnCenterNurse_CheckPokerus::
     end
 
 EventScript_PkmnCenterNurse_ExplainPokerus::
-    message gText_PokerusExplanation
-    setflag FLAG_POKERUS_EXPLAINED
-    return
+	message gText_PokerusExplanation
+	setflag FLAG_POKERUS_EXPLAINED
+	return
 
 EventScript_PkmnCenterNurse_PlayerTurn::
     closemessage
@@ -59,6 +59,6 @@ EventScript_PkmnCenterNurse_PlayerTurn::
     end
 
 Movement_PkmnCenterNurse_Bow:
-    nurse_joy_bow
-    delay_4
-    step_end
+	nurse_joy_bow
+	delay_4
+	step_end
