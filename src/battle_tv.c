@@ -1243,7 +1243,7 @@ static void AddMovePoints(u8 caseId, u16 arg1, u8 arg2, u8 arg3)
                 movePoints->points[defSide][id + tvPtr->pos[defSide][1].mudSportMoveSlot] += sPointsArray[caseId][0];
             }
         }
-        break;
+        break;/* TODO these are commented out because the IS_TYPE_XXX functions need a move, not a type, as their input.
     case PTS_REFLECT:
         // If hit Reflect with damaging physical move
         if (IS_TYPE_PHYSICAL(type) && power != 0 && tvPtr->side[defSide].reflectMonId != 0)
@@ -1259,7 +1259,7 @@ static void AddMovePoints(u8 caseId, u16 arg1, u8 arg2, u8 arg3)
             u32 id = (tvPtr->side[defSide].lightScreenMonId - 1) * 4;
             movePoints->points[defSide][id + tvPtr->side[defSide].lightScreenMoveSlot] += sPointsArray[caseId][0];
         }
-        break;
+        break;*/
 #undef type
 #undef power
     }
