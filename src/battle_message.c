@@ -1335,7 +1335,6 @@ static const u8 sATypeMove_Table[NUMBER_OF_MON_TYPES][17] =
     [TYPE_BUG]      = _("a bug move"),
     [TYPE_GHOST]    = _("a ghost move"),
     [TYPE_STEEL]    = _("a steel move"),
-    [TYPE_MYSTERY]  = _("a ??? move"),
     [TYPE_FIRE]     = _("a fire move"),
     [TYPE_WATER]    = _("a water move"),
     [TYPE_GRASS]    = _("a grass move"),

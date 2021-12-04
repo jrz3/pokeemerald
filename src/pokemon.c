@@ -3252,8 +3252,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
             damage = 1;
     }
 
-    if (type == TYPE_MYSTERY)
-        damage = 0; // is ??? type. does 0 damage.
+    if (gBattleMoves[move].effect == EFFECT_CURSE)
+        damage = 0; // Curse does 0 damage.
 
     if (IS_TYPE_SPECIAL(gBattleMoves[move]))
     {
