@@ -10,6 +10,8 @@ struct RecordMixingDaycareMail
     bool16 cantHoldItem[DAYCARE_MON_COUNT];
 };
 
+#define MAX_DAYCARE_LEVEL 10
+
 u8 *GetMonNickname2(struct Pokemon *mon, u8 *dest);
 u8 *GetBoxMonNickname(struct BoxPokemon *mon, u8 *dest);
 u8 CountPokemonInDaycare(struct DayCare *daycare);

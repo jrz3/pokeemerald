@@ -218,7 +218,7 @@ static void ApplyDaycareExperience(struct Pokemon *mon)
     bool8 firstMove;
     u16 learnedMove;
 
-    for (i = 0; i < MAX_LEVEL; i++)
+    for (i = 0; i < MAX_DAYCARE_LEVEL; i++)
     {
         // Add the mon's gained daycare experience level by level until it can't level up anymore.
         if (TryIncrementMonLevel(mon))
@@ -245,18 +245,25 @@ static void ApplyDaycareExperience(struct Pokemon *mon)
 static u16 TakeSelectedPokemonFromDaycare(struct DaycareMon *daycareMon)
 {
     u16 species;
-    u32 experience;
+    u32 newExperience, currExp, maxLevelExp;
     struct Pokemon pokemon;
 
     GetBoxMonNickname(&daycareMon->mon, gStringVar1);
     species = GetBoxMonData(&daycareMon->mon, MON_DATA_SPECIES);
     BoxMonToMon(&daycareMon->mon, &pokemon);
 
-    if (GetMonData(&pokemon, MON_DATA_LEVEL) != MAX_LEVEL)
+    if (GetMonData(&pokemon, MON_DATA_LEVEL) < MAX_DAYCARE_LEVEL)
     {
-        experience = GetMonData(&pokemon, MON_DATA_EXP) + daycareMon->steps;
-        SetMonData(&pokemon, MON_DATA_EXP, &experience);
-        ApplyDaycareExperience(&pokemon);
+        // Don't apply the experience if the pokemon is already above max daycare levels
+        currExp = GetMonData(&pokemon, MON_DATA_EXP);
+        maxLevelExp = gExperienceTables[gBaseStats[GetMonData(&pokemon, MON_DATA_SPECIES)].growthRate][MAX_DAYCARE_LEVEL];
+        if (currExp < maxLevelExp)
+        {
+            // Only apply new experience up to the daycare level cap
+            newExperience = min(GetMonData(&pokemon, MON_DATA_EXP) + daycareMon->steps, maxLevelExp);
+            SetMonData(&pokemon, MON_DATA_EXP, &newExperience);
+            ApplyDaycareExperience(&pokemon);
+        }
     }
 
     gPlayerParty[PARTY_SIZE - 1] = pokemon;
